@@ -8,16 +8,33 @@ Fork and clone this repo. On your fork, answer and commit the follow questions. 
 Complete the function so that it will print out total cost after tax. Make sure to **call the function** afterwards.
 
 ```swift
+
 let itemCost = 45.0
 let nyTax = 0.08775
 
-func totalWithTax() {
+func totalWithTax() -> Double {
 
+let taxAmount:Double = nyTax * itemCost
+let totalCost = itemCost + taxAmount
+return totalCost
 }
+
+print("Total cost of the item after tax: $\(totalWithTax())")
 ```
-
 Then, modify the function you implemented to have a return type of `Int`, and use an external name that looks more readable. Function calls should look something like "total cost of the item after tax"
+```swift
+let itemCost = 45.0
+let nyTax = 0.08775
 
+func totalWithTax() -> Int {
+
+let taxAmount:Double = nyTax * itemCost
+let totalCost = Int(itemCost) + Int(taxAmount)
+return totalCost
+}
+
+print("Total cost of the item after tax: $\(totalWithTax())")
+```
 ## Question 2
 
 Convert the the following if/else statement below into function with a `String` return type.
@@ -25,13 +42,17 @@ Convert the the following if/else statement below into function with a `String` 
 ```swift
 let todaysTemperature = 72
 
+func weatherChanges() -> String {
 if todaysTemperature <= 40 {
-    print("It's cold out.")
+return ("It's cold out.")
 } else if todaysTemperature >= 85 {
-    print("It's really warm.")
+return ("It's really warm.")
 } else {
-    print("Weather is moderate.")
+return ("Weather is moderate.")
 }
+}
+
+print(weatherChanges())
 ```
 
 
@@ -46,7 +67,18 @@ Example:
 Input: `min2(a:1, b:2)`
 
 Output: `1`
+```swift
 
+func min2(a: Int, b:Int) ->Int {
+if a < b {
+return a
+} else {
+return b
+}
+}
+let input = min2(a: 1, b: 2)
+print("the smallest integer is \(input)")
+```
 
 ## Question 4
 
@@ -59,12 +91,28 @@ Example:
 Input: `lastDigit(12345)`
 
 Output: `5`
-
-
+```swift
+func lastDigit(_ number: Int) -> Int {
+var numberStr = String(number)
+var lastDigit = Int(String(numberStr.last!))!
+return lastDigit
+}
+lastDigit(12345)
+```
 ## Question 5
 
 Write a function that takes in any two positive integers and return the sum.
+```swift
+func sumTwoIntegers(integer x: Int, integer y: Int) -> Int {
+var sum = 0
+if x > 0 && y > 0 {
+sum = x + y
+}
+return sum
+}
 
+print(sumTwoIntegers(integer: 11, integer: 14))
+```
 
 ## Question 6
 
