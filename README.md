@@ -126,14 +126,51 @@ Write a function takes in any number grade and returns a corresponding letter gr
 | 70 - 79 | C |
 | 65 - 69 | D |
 | Below 65 | F |
+```swift
+func gradeEquivalent (score : Int ) -> String {
+    var gradeLetter: String = ""
+    if score == 100 {
+        gradeLetter = "A+"
+    } else if score >= 90 && score <= 99 {
+        gradeLetter = "A"
+    } else if score >= 80 && score <= 89 {
+        gradeLetter = "B"
+    } else if score >= 70 && score <= 79 {
+        gradeLetter = "C"
+    } else if score >= 65 && score <= 69 {
+        gradeLetter = "D"
+    } else {
+        gradeLetter = "F"
+    }
+        return gradeLetter
+}
 
+print(gradeEquivalent(score: 78))
+```
 
 ## Question 7
 
 Make a calculator function that takes in three parameters (two numbers and one operator) and returns the answer of the operation.
 
 Operator parameter: (+, -, x, /)
+```swift
+func calculator(x: Int, y: Int, z: Character) -> Int {
+var result = 0
 
+if z == "+" {
+        result = x + y
+    } else if z == "-" {
+        result = x - y
+    } else if z == "x" {
+        result = x * y
+    } else if z == "/" {
+        result = x / y
+    }
+    return result
+    }
+
+print(calculator(x: 10, y: 5, z: "/"))
+```
 
 ## Question 8
 
@@ -145,20 +182,35 @@ let tipPercentage = 0.15
 
 //Write your code below
 
-let myFinalCost = totalWithTip() //Fill in the arguments
-```
+func totalWithTip() -> Double {
 
+    let tipAmount:Double = tipPercentage * mealCost
+    let totalWithTip = mealCost + tipAmount
+    return totalWithTip
+}
+    let myFinalCost = Double(totalWithTip()) //Fill in the arguments
+
+print("my final cost: $\(myFinalCost)")
+```
 Write a function that will print out **total cost after tip and tax.**
 
 ```swift
 let taxPercentage = 0.09
+let mealCost = 45.0
+let tipPercentage = 0.15
 
-//Write your code below
+func totalWithTipAndTax() -> Double {
+    let taxAmount: Double = taxPercentage * mealCost
+    let tipAmount:Double = tipPercentage * mealCost
+    let totalWithTip = mealCost + tipAmount
+    let totalWithTipAndTax = totalWithTip + taxAmount
+    return totalWithTipAndTax
+}
 
 let myFinalCostWithTipAndTax = totalWithTipAndTax() //Fill in the arguments in function
+
+print("my final cost including tip and tax is \(myFinalCostWithTipAndTax)")
 ```
-
-
 ## Question 9
 
 Implement a function named `repeatPrint` that takes a string `message` and a integer `count` as parameters. The function should print `message` `count` number of times and then print a newline.
